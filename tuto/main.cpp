@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:23:49 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/02 14:35:16 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/02 14:53:38 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 
 int main()
 {
-    std::cout << "----------les variables---------" << std::endl;
-
-    float number = 14.0;
-    int nbr = 123;
-    char c = 'a';
-    std::string welcome_message = "Hello word !";
-    const int nbr_const = 2022; // lecture seul
-    // auto variable = 123; auto  like var in Dart
+    std::cout << "----------saisie utilisateur---------" << std::endl;
     
-    std::cout << variable << std::endl;
-
-
+    std::cout << "Tapez votre name : ";
+    std::string name;
+    // std::cin >> name;
+    std::getline(std::cin, name);
+    std::cout << "name saisi est : " << name << std::endl;
+    std::cin.clear(); // .good()  .bad()   .fail()
+    
     std::cout << "--------------------------------" << std::endl;
     return (0);
 }
