@@ -6,30 +6,33 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:23:49 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/03 14:40:19 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/03 15:18:49 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "utils.hpp"
 
 
-void setNumber(int& a, int &b)
+struct Product
 {
-    a = 10;
-    b = 20;
-}
+    std::string name;
+    float prix;
+    bool available;
+};
+
 
 int main()
 {
     std::cout << "--------------------------------" << std::endl;
-    
-   int a = 55;
-   int b = 99;
-    std::cout << a << " " << b << std::endl;
-    setNumber(a, b);
-    std::cout << a << " " << b << std::endl;
-        
+     
+    using Product = struct Product; // alias
+    Product p1;
+    p1.name  = "ahammam";
+    p1.prix = 1.25;
+    p1.available = true;
+
+    std::cout << "name : " << p1.name << std::endl;
+  
     std::cout << "--------------------------------" << std::endl;
     return (0);
 }
