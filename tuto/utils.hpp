@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 14:57:06 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/03 15:05:38 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/04 12:59:13 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define UTILS_HPP
 
 #include <iostream>
-void helloWord();
+#include <list>
+#include <string>
+using namespace std;
 
 #endif

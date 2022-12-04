@@ -6,13 +6,8 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 14:54:43 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/03 15:05:43 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/03 15:39:10 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
-
-void helloWord()
-{
-    std::cout << "Hello word !" << std::endl;
-}
