@@ -6,7 +6,7 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/05 12:57:20 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/05 15:34:57 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = phonebook
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	Contact.cpp PhoneBook.cpp
+SRCS =	main.cpp
 
-Include	= phonebook.hpp
+Include	= Contact.hpp PhoneBook.hpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
