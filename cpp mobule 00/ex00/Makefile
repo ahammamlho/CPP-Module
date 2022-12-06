@@ -5,27 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/06 13:33:10 by lahammam         ###   ########.fr        #
+#    Created: 2022/12/05 10:54:22 by lahammam          #+#    #+#              #
+#    Updated: 2022/12/05 11:42:30 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = megaphone
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp
-
-Include	= Contact.hpp PhoneBook.hpp
+SRCS =	megaphone.cpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
-CC = c++
+CC = g++
 
-%.o:%.c ${Include}
+%.o:%.c
 		${CC} ${CFLAGS} -g -c $< -o $@
 
-$(NAME): ${OBJSRC} ${Include}
+$(NAME): ${OBJSRC} 
 	${CC} ${CFLAGS} ${OBJSRC} -o ${NAME} 
 
 all: ${NAME}

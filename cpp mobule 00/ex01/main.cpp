@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/05 15:44:03 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:30:14 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,52 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-void prompt()
+int prompt(std::string str)
 {
-    std::cout << "Enter one of three commands [ADD, SEARCH and EXIT]" << std::endl;
+    std::cout << str << std::endl;
     std::cout << "==> ";
+    return (1);
+}
+
+Contact fill_data()
+{
+    Contact contact;
+    std::string fName, lName, nName, pNumber, dSecret;
+    while (fName.length() == 0 && prompt("Enter first name"))
+        getline(std::cin, fName);
+    while (lName.length() == 0 && prompt("Enter last name"))
+        getline(std::cin, lName);
+    while (nName.length() == 0 && prompt("Enter nickname"))
+        getline(std::cin, nName);
+    while (pNumber.length() == 0 && prompt("Enter phone number"))
+        getline(std::cin, pNumber);
+    while (dSecret.length() == 0 && prompt("Enter darkest secre"))
+        getline(std::cin, dSecret);
+    contact.fill_contact(fName, lName, nName, pNumber, dSecret);
+    return (contact);
 }
 
 int main(int argc, char **argv)
 {
     if (argc == 1)
     {
+        int i = 0;
+        int nbr_contact;
         PhoneBook phonebook;
+        Contact contact;
         std::string cmd;
         while (1)
         {
-            prompt();
+            prompt("Enter one of three commands [ADD, SEARCH and EXIT]");
+            std::cin.clear();
             getline(std::cin, cmd);
             if (cmd.compare("ADD") == 0)
             {
-                std::string fName, lName, nName, pNumber, dSecret;
+                contact = fill_data();
+                phonebook.addContact(i, contact);
+                if (i == 7)
+                    i = -1;
+                i++;
             }
             else if (cmd.compare("SEARCH") == 0)
                 phonebook.searchContact();

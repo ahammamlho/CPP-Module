@@ -3,3 +3,4 @@ main.dSYM
 .vscode
 a.out
 utils.hpp.gch
+*.o
