@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:05:04 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/08 11:59:47 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:15:25 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,7 @@ private:
     std::string darketSecret;
 
 public:
-    Contact()
-    {
-        firstName = "";
-        lastName = "";
-        nickName = "";
-        phoneNumber = "";
-        darketSecret = "";
-    };
+    Contact();
     void fill_contact(std::string fName, std::string lName, std::string nName, std::string pNumber, std::string dSecret);
     std::string get_firstName();
     std::string get_lastName();

@@ -6,17 +6,17 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/08 13:03:14 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/08 12:49:14 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = BraiiiiiiinnnzzzZ
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Contact.cpp PhoneBook.cpp
+SRCS =	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
-Include	= Contact.hpp PhoneBook.hpp
+Include	= Zombie.hpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
