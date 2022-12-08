@@ -6,7 +6,7 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 10:54:22 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/05 11:42:30 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/08 10:45:57 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS =	megaphone.cpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
-CC = g++
+CC = clang++
 
 %.o:%.c
 		${CC} ${CFLAGS} -g -c $< -o $@

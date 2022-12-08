@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/06 15:30:14 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:59:06 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int main(int argc, char **argv)
         while (1)
         {
             prompt("Enter one of three commands [ADD, SEARCH and EXIT]");
-            std::cin.clear();
             getline(std::cin, cmd);
             if (cmd.compare("ADD") == 0)
             {
