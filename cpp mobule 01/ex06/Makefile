@@ -6,11 +6,11 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/11 12:49:48 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/11 12:49:41 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harl
+NAME = harlFilter
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
