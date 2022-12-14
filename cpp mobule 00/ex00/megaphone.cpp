@@ -6,10 +6,9 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:54:14 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/05 12:59:43 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:11:36 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <iostream>
 #include <string>
@@ -38,7 +37,9 @@ int main(int argc, char **argv)
             upperCase(argv[i]);
             i++;
         }
-    }else {
+    }
+    else
+    {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     }
     std::cout << std::endl;

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 12:50:32 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/14 11:24:34 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
+/*   Updated: 2022/12/13 10:20:31 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string.h>
 
-class PhoneBook
+class Fixed
 {
 private:
-    Contact contacts[8];
-
-    void print_info(std::string str);
-    void display_contacts(int *index);
-    void print_contact(int index);
+    int a;
+    static int fra = 8;
 
 public:
-    void addContact(int i, Contact contact);
-    void searchContact();
+    Fixed();
+    Fixed(const Fixed &old_fixed);
+    Fixed operator=(Fixed other);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+    ~Fixed();
 };
 
 #endif

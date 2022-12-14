@@ -6,26 +6,26 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/14 11:38:20 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/11 14:36:49 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = a.out
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp Contact.cpp PhoneBook.cpp
+SRCS =	main.cpp  Fixed.cpp
 
-Include	= Contact.hpp PhoneBook.hpp
+Include	= Fixed.hpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-%.o:%.cpp ${Include}
+%.o:%.c ${Include}
 		${CC} ${CFLAGS} -g -c $< -o $@
 
-$(NAME): ${OBJSRC}
+$(NAME): ${OBJSRC} ${Include}
 	${CC} ${CFLAGS} ${OBJSRC} -o ${NAME} 
 
 all: ${NAME}

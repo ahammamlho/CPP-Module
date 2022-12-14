@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:54:17 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/08 12:00:10 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:20:40 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void PhoneBook::searchContact()
         {
             index = stoi(s_index);
             if (index >= 0 && index < len)
-
                 print_contact(index);
         }
     }
