@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 10:54:14 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/14 11:11:36 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:31:20 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void upperCase(std::string str)
 {
     char tmp;
-    for (int j = 0; j < str.length(); j++)
+    for (unsigned int j = 0; j < str.length(); j++)
     {
         tmp = str[j];
         if (tmp >= 97 && tmp <= 122)

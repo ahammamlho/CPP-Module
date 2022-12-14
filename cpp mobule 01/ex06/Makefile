@@ -6,7 +6,7 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/11 12:49:41 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/14 13:57:28 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJSRC = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-%.o:%.c ${Include}
+%.o:%.cpp ${Include}
 		${CC} ${CFLAGS} -g -c $< -o $@
 
 $(NAME): ${OBJSRC} ${Include}
@@ -37,3 +37,5 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
+
+.PHONY: all clean fclean re 

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:54:17 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/14 11:20:40 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:19:23 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void PhoneBook::display_contacts(int *index)
     while (contacts[j].get_firstName().length() != 0)
     {
         std::cout << "          " << j;
-        std::cout << " ";
         std::cout << "|";
         print_info(contacts[j].get_firstName());
         std::cout << "|";

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/08 11:59:06 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:28:53 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int main(int argc, char **argv)
     if (argc == 1)
     {
         int i = 0;
-        int nbr_contact;
         PhoneBook phonebook;
         Contact contact;
         std::string cmd;
@@ -69,4 +68,5 @@ int main(int argc, char **argv)
                 std::cout << "Please ";
         }
     }
+    (void)argv;
 }
