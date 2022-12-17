@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/13 09:39:29 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/17 13:13:51 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed &old_fixed)
 {
     std::cout << "Copy constructor called" << std::endl;
-    a = old_fixed.a;
+    a = old_fixed.getRawBits();
 };
 
-Fixed Fixed::operator=(Fixed other)
+Fixed &Fixed::operator=(Fixed &other)
 {
-    std::cout << "Copy assignment operator calle" << std::endl;
-    return (other);
+    std::cout << "Copy assignment operator called" << std::endl;
+    (*this).a = other.getRawBits();
+    return (*this);
 }
 
 int Fixed::getRawBits(void) const
@@ -38,6 +39,7 @@ int Fixed::getRawBits(void) const
 
 void Fixed::setRawBits(int const raw)
 {
+    a = raw;
     std::cout << "setRawBits member function called" << std::endl;
 };
 

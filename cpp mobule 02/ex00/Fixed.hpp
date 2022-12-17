@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/12 12:46:27 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/17 13:00:30 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Fixed
 {
 private:
     int a;
-    static int fra = 8;
+    const static int fra = 8;
 
 public:
     Fixed();
     Fixed(const Fixed &old_fixed);
-    Fixed operator=(Fixed other);
+    Fixed &operator=(Fixed &other);
     int getRawBits(void) const;
     void setRawBits(int const raw);
     ~Fixed();
