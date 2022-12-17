@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/10 12:33:12 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:32:34 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int replace_str(std::string data, std::string file, std::string s1, std::string 
     temp = data;
     found = temp.find(s1);
     i = 0;
-    int j = 0;
     while (found != std::string::npos)
     {
         i = i + found;
@@ -69,7 +68,7 @@ int main(int ac, char **av)
     if (ac != 4)
     {
         std::cout << "Please entre three parameters [filename and two strings]" << std::endl;
-        return (0);
+        return (1);
     }
     else
         get_line(av[1], av[2], av[3]);

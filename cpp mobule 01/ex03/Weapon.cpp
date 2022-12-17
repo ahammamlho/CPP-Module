@@ -6,15 +6,13 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:13:15 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/09 11:45:11 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:17:38 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string.h>
 #include "Weapon.h"
-
-Weapon::Weapon(){};
 
 Weapon::Weapon(std::string str)
 {
@@ -33,4 +31,5 @@ void Weapon::setType(std::string str)
 
 Weapon::~Weapon()
 {
+    std::cout << "Destructor called" << std::endl;
 }

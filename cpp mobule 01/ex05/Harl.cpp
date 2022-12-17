@@ -6,14 +6,12 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:59 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/11 12:46:17 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:53:58 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <map>
-
-Harl::Harl(){};
 
 void Harl::debug(void)
 {
@@ -41,15 +39,14 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    void (Harl::*fctPtr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    void (*fctPtr[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string actionsStr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     for (size_t i = 0; i < 4; i++)
     {
         if (level == actionsStr[i])
         {
-            (this->*(fctPtr[i]))();
+            (this->*fctPtr[i])();
             break;
         }
     }
 };
-Harl::~Harl(){};

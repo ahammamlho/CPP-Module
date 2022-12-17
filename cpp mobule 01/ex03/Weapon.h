@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:12:30 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/09 11:45:18 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:15:23 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ private:
     std::string type;
 
 public:
-    Weapon();
     Weapon(std::string str);
     std::string getType();
     void setType(std::string str);

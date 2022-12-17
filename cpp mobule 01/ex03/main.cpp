@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/09 12:19:30 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:26:20 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ int main()
     {
         Weapon club = Weapon("crude spiked club");
         HumanB jim("Jim");
-        // jim.setWeapon(club);
+        jim.setWeapon(club);
         jim.attack();
         club.setType("some other type of club");
         jim.attack();
     }
     return 0;
 }
-//    std::cout << "---->" << club.getType() << std::endl;

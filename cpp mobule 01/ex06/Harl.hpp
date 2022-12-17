@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/10 14:15:50 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:07:14 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ private:
     void error(void);
 
 public:
-    Harl();
     void complain(std::string level);
-    ~Harl();
 };
 
 #endif

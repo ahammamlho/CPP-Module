@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 10:19:34 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/09 12:18:03 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/14 14:17:50 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,7 @@ void HumanA::attack()
     std::cout << name << " attacks with their  " << weapon->getType() << std::endl;
 };
 
-HumanA::~HumanA(){};
+HumanA::~HumanA()
+{
+    std::cout << "Destructor called" << std::endl;
+};
