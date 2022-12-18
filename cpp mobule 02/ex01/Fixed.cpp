@@ -3,69 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/17 15:46:27 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/18 23:24:23 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <cmath>
 
 Fixed::Fixed()
 {
     std::cout << "Default constructor called" << std::endl;
     fixedPoint = 0;
 };
-
 Fixed::Fixed(const Fixed &old_fixed)
 {
     std::cout << "Copy constructor called" << std::endl;
-    fixedPoint = old_fixed.getRawBits();
+    *this = old_fixed;
 };
-
 Fixed::Fixed(const int par)
 {
+    std::cout << "Int constructor called" << std::endl;
     fixedPoint = par << fra_bits;
 };
 
-int Fixed::toInt(void) const
+Fixed::Fixed(const float par)
 {
-    return (fixedPoint >> fra_bits);
+    std::cout << "Float constructor called" << std::endl;
+    fixedPoint = std::roundf(par * (1 << fra_bits));
 };
 
-Fixed::Fixed(const double par)
-{
-    fixedPoint = (int)par << fra_bits;
-};
-
-int Fixed::toFloat(void)
-{
-    return (fixedPoint >> fra_bits);
-};
-
-Fixed &Fixed::operator=(Fixed &other)
+Fixed &Fixed::operator=(const Fixed &other)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     fixedPoint = other.getRawBits();
     return (*this);
 }
-
-std::ostream &operator<<(std::ostream &out, Fixed &other)
+int Fixed::toInt(void) const
 {
-    out << other.getRawBits();
+    return (fixedPoint >> fra_bits);
+};
+
+float Fixed::toFloat(void) const
+{
+    return ((float)fixedPoint / (1 << fra_bits));
+};
+
+std::ostream &operator<<(std::ostream &out, const Fixed &other)
+{
+    out << other.toFloat();
     return out;
 }
+
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return fixedPoint;
 };
 
 void Fixed::setRawBits(int const raw)
 {
     fixedPoint = raw;
-    std::cout << "setRawBits member function called" << std::endl;
 };
 
 Fixed::~Fixed()
