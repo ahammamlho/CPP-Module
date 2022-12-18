@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/12 12:52:11 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/17 15:46:27 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,56 @@
 Fixed::Fixed()
 {
     std::cout << "Default constructor called" << std::endl;
-    a = 0;
+    fixedPoint = 0;
 };
 
 Fixed::Fixed(const Fixed &old_fixed)
 {
     std::cout << "Copy constructor called" << std::endl;
-    a = old_fixed.a;
+    fixedPoint = old_fixed.getRawBits();
 };
 
-Fixed Fixed::operator=(Fixed other)
+Fixed::Fixed(const int par)
 {
-    std::cout << "Copy assignment operator calle" << std::endl;
-    return (other);
+    fixedPoint = par << fra_bits;
+};
+
+int Fixed::toInt(void) const
+{
+    return (fixedPoint >> fra_bits);
+};
+
+Fixed::Fixed(const double par)
+{
+    fixedPoint = (int)par << fra_bits;
+};
+
+int Fixed::toFloat(void)
+{
+    return (fixedPoint >> fra_bits);
+};
+
+Fixed &Fixed::operator=(Fixed &other)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    fixedPoint = other.getRawBits();
+    return (*this);
 }
 
+std::ostream &operator<<(std::ostream &out, Fixed &other)
+{
+    out << other.getRawBits();
+    return out;
+}
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    return a;
+    return fixedPoint;
 };
 
 void Fixed::setRawBits(int const raw)
 {
+    fixedPoint = raw;
     std::cout << "setRawBits member function called" << std::endl;
 };
 
