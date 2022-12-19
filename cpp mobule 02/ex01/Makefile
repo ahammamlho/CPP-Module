@@ -6,7 +6,7 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/11 14:36:49 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/19 17:28:02 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ OBJSRC = ${SRCS:.cpp=.o}
 
 CC = clang++
 
-%.o:%.c ${Include}
-		${CC} ${CFLAGS} -g -c $< -o $@
+%.o:%.ccp ${Include}
+		${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME): ${OBJSRC} ${Include}
+$(NAME): ${OBJSRC}  
 	${CC} ${CFLAGS} ${OBJSRC} -o ${NAME} 
 
 all: ${NAME}

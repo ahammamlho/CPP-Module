@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/18 23:24:23 by ahammam          ###   ########.fr       */
+/*   Updated: 2022/12/19 16:59:32 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-    return ((float)fixedPoint / (1 << fra_bits));
+    return ((float)fixedPoint / (float)(1 << fra_bits));
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &other)

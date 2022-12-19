@@ -6,16 +6,16 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 13:18:53 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/19 13:37:49 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/19 15:38:10 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <Point.hpp>
+#include "Point.hpp"
 
 Point::Point()
 {
-    x.setRawBits(0);
-    y.setRawBits(0);
+    x = 0;
+    y = 0;
 };
 Point::Point(const float x1, const float y1)
 {
@@ -36,8 +36,8 @@ Fixed Point::get_y() const
 };
 Point &Point::operator=(const Point &other)
 {
-    this.x = other.get_x();
-    this.y = other.get_y();
+    this->x = other.get_x();
+    this->y = other.get_y();
     return (*this);
 };
 Point::~Point(){};
