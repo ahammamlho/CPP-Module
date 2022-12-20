@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/20 11:26:51 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:50:45 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
+/*   Updated: 2022/12/20 15:44:06 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-class ScavTrap : public ClapTrap
+int main(void)
 {
-public:
-    ScavTrap();
-    ScavTrap(std::string nm);
 
-    ScavTrap(const ScavTrap &old);
-    ScavTrap &operator=(const ScavTrap &old);
-
-    void attack(const std::string &target);
-    void guardGate();
-
-    ~ScavTrap();
-};
-
-#endif
+    DiamondTrap s("hihi");
+    s.attack("fdlgj");
+    s.whoAmI();
+    return 0;
+}

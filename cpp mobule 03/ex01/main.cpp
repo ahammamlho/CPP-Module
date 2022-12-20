@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 11:57:23 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:06:53 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int main(void)
     scavtrap.attack("hamm");
     scavtrap.takeDamage(50);
     scavtrap.guardGate();
-
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 11:26:51 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:11:25 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:50:54 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
     FragTrap &operator=(const FragTrap &old);
 
     void highFivesGuy(void);
+    void attack(const std::string &target);
 
     ~FragTrap();
 };

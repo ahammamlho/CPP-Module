@@ -6,9 +6,11 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:48:46 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 15:09:42 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ClapTrap.hpp"
 
 #include "ClapTrap.hpp"
 

@@ -6,9 +6,11 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:05:17 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 13:48:53 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ClapTrap.hpp"
 
 #include "ClapTrap.hpp"
 
@@ -75,7 +77,10 @@ void ClapTrap::takeDamage(unsigned int amount)
     else
     {
         std::cout << "ClapTrap " << name << " take " << amount << " points of damage!\n";
-        hitPoints = hitPoints - amount;
+        if (hitPoints >= amount)
+            hitPoints = hitPoints - amount;
+        else
+            hitPoints = 0;
     }
 };
 
