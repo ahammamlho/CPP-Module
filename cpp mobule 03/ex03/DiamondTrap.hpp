@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:29:41 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 15:34:34 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:32:34 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ public:
     using ScavTrap::attack;
 
     ~DiamondTrap();
-    std::string get_name_diam() const;
-    void set_name_diam(std::string name);
     void whoAmI();
 };
 

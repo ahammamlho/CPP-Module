@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 13:31:19 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 16:28:32 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:32:43 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,6 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &old)
     return (*this);
 };
 
-std::string DiamondTrap::get_name_diam() const
-{
-    return this->name;
-}
-void DiamondTrap::set_name_diam(std::string name)
-{
-    this->name = name;
-}
 void DiamondTrap::whoAmI()
 {
     std::cout << "my name: " << name << " ClapTrap name's: " << ClapTrap::name << std::endl;
