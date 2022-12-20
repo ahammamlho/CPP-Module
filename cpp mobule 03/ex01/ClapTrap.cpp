@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 11:48:11 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 11:29:04 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 ClapTrap::ClapTrap()
 {
     std::cout << "Default constructor called" << std::endl;
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
 };
 
 ClapTrap::ClapTrap(std::string nm)
 {
     std::cout << "string constructor called" << std::endl;
     name = nm;
-    hitPoints = 100;
-    energyPoints = 50;
-    attackDamage = 20;
+    hitPoints = 10;
+    energyPoints = 10;
+    attackDamage = 0;
 };
 
 ClapTrap::ClapTrap(const ClapTrap &old_claptrap)
