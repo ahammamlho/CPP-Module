@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 15:44:06 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:28:47 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 {
 
     DiamondTrap s("hihi");
+    DiamondTrap b;
     s.attack("fdlgj");
     s.whoAmI();
     return 0;

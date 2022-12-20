@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:48:46 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:05:02 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ ClapTrap::ClapTrap(std::string nm)
     attackDamage = 0;
 };
 
-std::string ClapTrap::get_name() const { return name; };
-unsigned int ClapTrap::get_hitPoints() const { return hitPoints; };
-unsigned int ClapTrap::get_energyPoints() const { return energyPoints; };
-unsigned int ClapTrap::get_attackDamage() const { return attackDamage; };
-
-void ClapTrap::set_name(std::string nm) { name = nm; };
-void ClapTrap::set_hitPoints(unsigned int hit) { hitPoints = hit; };
-void ClapTrap::set_energyPoints(unsigned int energy) { energyPoints = energy; };
-void ClapTrap::set_attackDamage(unsigned int attack) { attackDamage = attack; };
-
 ClapTrap::ClapTrap(const ClapTrap &old_claptrap)
 {
     std::cout << "ClapTrap class: Copy constructor called" << std::endl;
@@ -48,10 +38,10 @@ ClapTrap::ClapTrap(const ClapTrap &old_claptrap)
 ClapTrap &ClapTrap::operator=(const ClapTrap &old_claptrap)
 {
     std::cout << "ClapTrap class: Copy assignment operator called" << std::endl;
-    name = old_claptrap.get_name();
-    hitPoints = old_claptrap.get_hitPoints();
-    energyPoints = old_claptrap.get_energyPoints();
-    attackDamage = old_claptrap.get_attackDamage();
+    name = old_claptrap.name;
+    hitPoints = old_claptrap.hitPoints;
+    energyPoints = old_claptrap.energyPoints;
+    attackDamage = old_claptrap.attackDamage;
     return (*this);
 };
 

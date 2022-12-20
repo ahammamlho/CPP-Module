@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/20 13:06:53 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:10:13 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 int main(void)
 {
 
-    ScavTrap scavtrap("hihi");
-    scavtrap.attack("hamm");
-    scavtrap.beRepaired(5);
-    scavtrap.attack("hamm");
-    scavtrap.takeDamage(50);
-    scavtrap.guardGate();
+    ScavTrap s("hihi");
+    s.attack("hamm");
+    s.beRepaired(5);
+    s.attack("hamm");
+    s.takeDamage(50);
+    s.takeDamage(60);
+    s.guardGate();
+    s.guardGate();
     return 0;
 }
