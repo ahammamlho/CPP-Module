@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 11:49:31 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/21 11:44:27 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-Animal::Animal()
+Dog::Dog()
 {
-    type = "Animal";
-    std::cout << "Animal class: Default constructor called" << std::endl;
+    type = "Dog";
+    std::cout << "Dog class: Default constructor called" << std::endl;
 };
 
-Animal::Animal(const Animal &old)
+Dog::Dog(const Dog &old)
 {
-    std::cout << "Animal class: Copy constructor called" << std::endl;
+    std::cout << "Dog class: Copy constructor called" << std::endl;
     *this = old;
 };
 
-Animal &Animal::operator=(const Animal &old)
+Dog &Dog::operator=(const Dog &old)
 {
-    std::cout << "Animal class: Copy assignment operator called" << std::endl;
+    std::cout << "Dog class: Copy assignment operator called" << std::endl;
     if (this != &old)
         type = old.type;
     return (*this);
 };
 
-std::string Animal::getType() const
+std::string Dog::getType() const
 {
     return type;
 };
-void Animal::makeSound() const
+
+void Dog::makeSound() const
 {
-    std::cout << "Animal sound!" << std::endl;
+    std::cout << "Dog sound!" << std::endl;
 };
 
-Animal::~Animal()
+Dog::~Dog()
 {
-    std::cout << "Animal class: Destructor called" << std::endl;
+    std::cout << "Dog class: Destructor called" << std::endl;
 };

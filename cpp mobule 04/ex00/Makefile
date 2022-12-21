@@ -6,7 +6,7 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2022/12/20 16:39:29 by lahammam         ###   ########.fr        #
+#    Updated: 2022/12/21 11:52:05 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = a.out
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp  Animal.cpp
+SRCS =	main.cpp  Animal.cpp Dog.cpp Cat.cpp
 
-Include	= Animal.hpp
+Include	= Animal.hpp Dog.hpp Dog.hpp
 
 OBJSRC = ${SRCS:.cpp=.o}
 
