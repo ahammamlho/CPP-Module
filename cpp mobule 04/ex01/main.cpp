@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 12:02:00 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
+/*   Updated: 2022/12/21 15:14:06 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
-#include <iostream>
-#include <string.h>
 #include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-class Dog : public Animal
+int main(void)
 {
-public:
-    Dog();
-    Dog(const Dog &old);
-    ~Dog();
-    Dog &operator=(const Dog &old);
-
-    void makeSound() const;
-    std::string getType() const;
-
-    void ft()
+    size_t len = 1;
+    Animal *obj = new Animal[len];
+    for (size_t i = 0; i < len; i++)
     {
-        std::cout << "ft sound!" << std::endl;
+        if (i % 2 == 0)
+            obj[i] = Dog();
+        else
+            obj[i] = Cat();
     };
-};
 
-#endif
+    for (size_t i = 0; i < len; i++)
+    {
+        delete obj++;
+    }
+    return 0;
+}

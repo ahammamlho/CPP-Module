@@ -1,48 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 13:45:09 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:15:43 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
+Brain::Brain()
 {
-    type = "Cat";
-    std::cout << "Cat class: Default constructor called" << std::endl;
+    std::cout << "Brain class: Default constructor called" << std::endl;
 };
 
-Cat::Cat(const Cat &old)
+Brain::Brain(const Brain &old)
 {
-    std::cout << "Cat class: Copy constructor called" << std::endl;
+    std::cout << "Brain class: Copy constructor called" << std::endl;
     *this = old;
 };
 
-Cat &Cat::operator=(const Cat &old)
+Brain &Brain::operator=(const Brain &old)
 {
-    std::cout << "Cat class: Copy assignment operator called" << std::endl;
+    std::cout << "Brain class: Copy assignment operator called" << std::endl;
     if (this != &old)
-        type = old.type;
+    {
+        for (size_t i = 0; i < 100; i++)
+        {
+            ideas[i] = (old.ideas)[i];
+        }
+    }
     return (*this);
 };
 
-std::string Cat::getType() const
+Brain::~Brain()
 {
-    return type;
-};
-
-void Cat::makeSound() const
-{
-    std::cout << "Cat sound!" << std::endl;
-};
-
-Cat::~Cat()
-{
-    std::cout << "Cat class: Destructor called" << std::endl;
+    std::cout << "Brain class: Destructor called" << std::endl;
 };

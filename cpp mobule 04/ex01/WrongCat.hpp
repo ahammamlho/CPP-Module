@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 12:02:00 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/21 13:50:20 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONG_CAT_HPP
+#define WRONG_CAT_HPP
 
 #include <iostream>
 #include <string.h>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
 public:
-    Dog();
-    Dog(const Dog &old);
-    ~Dog();
-    Dog &operator=(const Dog &old);
+    WrongCat();
+    WrongCat(const WrongCat &old);
+    ~WrongCat();
+    WrongCat &operator=(const WrongCat &old);
 
     void makeSound() const;
     std::string getType() const;
-
-    void ft()
-    {
-        std::cout << "ft sound!" << std::endl;
-    };
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 13:45:09 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/21 14:39:08 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat()
 {
     type = "Cat";
+    brain = new Brain();
     std::cout << "Cat class: Default constructor called" << std::endl;
 };
 
@@ -28,7 +29,10 @@ Cat &Cat::operator=(const Cat &old)
 {
     std::cout << "Cat class: Copy assignment operator called" << std::endl;
     if (this != &old)
+    {
         type = old.type;
+        brain = new Brain(*old.brain);
+    }
     return (*this);
 };
 
@@ -44,5 +48,6 @@ void Cat::makeSound() const
 
 Cat::~Cat()
 {
+    delete brain;
     std::cout << "Cat class: Destructor called" << std::endl;
 };

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 11:52:38 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/21 12:06:49 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ protected:
 public:
     Animal();
     Animal(const Animal &old);
-    ~Animal();
+    virtual ~Animal();
     Animal &operator=(const Animal &old);
 
     virtual void makeSound() const;
