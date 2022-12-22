@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 11:49:31 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:20:35 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ std::string Animal::getType() const
 {
     return type;
 };
-void Animal::makeSound() const
-{
-    std::cout << "Animal sound!" << std::endl;
-};
+void Animal::makeSound() const {};
 
 Animal::~Animal()
 {

@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/22 17:52:45 by ahammam          ###   ########.fr       */
+/*   Updated: 2022/12/22 17:27:56 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include <iostream>
 #include <string.h>
+#include "A_Animal.hpp"
+#include "Brain.hpp"
 
-class Brain
+class Cat : public A_Animal
 {
 private:
-    std::string ideas[100];
+    Brain *brain;
 
 public:
-    Brain();
-    Brain(const Brain &old);
-    virtual ~Brain();
-    Brain &operator=(const Brain &old);
+    Cat();
+    Cat(const Cat &old);
+    ~Cat();
+    Cat &operator=(const Cat &old);
+
+    void makeSound() const;
+    std::string getType() const;
 };
 
 #endif

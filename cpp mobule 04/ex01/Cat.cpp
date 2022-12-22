@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/21 14:39:08 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:19:41 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Cat::Cat()
 {
+    std::cout << "Cat class: Default constructor called" << std::endl;
     type = "Cat";
     brain = new Brain();
-    std::cout << "Cat class: Default constructor called" << std::endl;
 };
 
 Cat::Cat(const Cat &old)

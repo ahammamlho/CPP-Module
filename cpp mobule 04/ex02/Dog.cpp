@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/22 18:19:11 by ahammam          ###   ########.fr       */
+/*   Updated: 2022/12/21 14:39:17 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Dog::Dog()
 {
-    std::cout << "Dog class: Default constructor called" << std::endl;
     brain = new Brain();
     type = "Dog";
+    std::cout << "Dog class: Default constructor called" << std::endl;
 };
 
 Dog::Dog(const Dog &old)
@@ -48,6 +48,6 @@ void Dog::makeSound() const
 
 Dog::~Dog()
 {
-    std::cout << "Dog class: Destructor called" << std::endl;
     delete brain;
+    std::cout << "Dog class: Destructor called" << std::endl;
 };
