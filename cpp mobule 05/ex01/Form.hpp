@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/24 11:30:26 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/24 11:38:15 by lahammam          #+#    #+#             */
+/*   Updated: 2022/12/24 12:25:51 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
-
+#ifndef FORM_HPP
+#define FORM_HPP
 #include <iostream>
 #include <string.h>
-
-class Bureaucrat
+class Form
 {
+
 private:
     const std::string name;
-    int grade;
+    bool isSigned;
+    const int gradeRequiredtoSign;
+    const int gradeRequiredtoExecute;
 
 public:
-    Bureaucrat(const int grd, const std::string name);
-    Bureaucrat(const Bureaucrat &old);
-    Bureaucrat &operator=(const Bureaucrat &old);
-    ~Bureaucrat();
-
-    std::string getName() const;
-    int getGrade() const;
-    void increment();
-    void decrement();
+    Form(const std::string name, const int gradeSign, const int gradeExecute);
+    Form(const Form &old);
+    Form &operator=(const Form &old);
+    ~Form();
 
     class GradeTooHighException : public std::exception
     {
@@ -43,8 +39,11 @@ public:
     public:
         const char *what() const throw();
     };
-};
 
-std::ostream &operator<<(std::ostream &COUT, const Bureaucrat &bure);
+    std::string get_name() const;
+    bool get_isSigned() const;
+    int get_gradeRequiredtoSign() const;
+    int get_gradeRequiredtoExecute() const;
+};
 
 #endif

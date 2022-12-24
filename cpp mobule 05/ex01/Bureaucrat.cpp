@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/24 11:31:06 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/24 12:21:11 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(const int grd, const std::string name) : name(name)
     grade = grd;
 };
 
-Bureaucrat::Bureaucrat(const Bureaucrat &old)
+Bureaucrat::Bureaucrat(const Bureaucrat &old) : name(old.name)
 {
     std::cout << "Bureaucrat class: Copy constructor called" << std::endl;
     *this = old;

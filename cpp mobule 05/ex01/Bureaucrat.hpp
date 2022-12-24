@@ -6,16 +6,14 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/24 11:30:26 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/24 11:50:44 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
-
 #include <iostream>
 #include <string.h>
-
 class Bureaucrat
 {
 private:
