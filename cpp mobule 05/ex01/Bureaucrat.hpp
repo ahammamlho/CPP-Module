@@ -3,17 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/24 11:50:44 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/26 21:59:38 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+
 #include <iostream>
 #include <string.h>
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -21,6 +26,7 @@ private:
     int grade;
 
 public:
+    Bureaucrat();
     Bureaucrat(const int grd, const std::string name);
     Bureaucrat(const Bureaucrat &old);
     Bureaucrat &operator=(const Bureaucrat &old);
@@ -28,8 +34,11 @@ public:
 
     std::string getName() const;
     int getGrade() const;
+
     void increment();
     void decrement();
+
+    void signForm(Form &form) const;
 
     class GradeTooHighException : public std::exception
     {

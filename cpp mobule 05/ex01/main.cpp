@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/24 12:31:44 by lahammam         ###   ########.fr       */
+/*   Updated: 2022/12/26 22:22:00 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 
 int main(void)
 {
-    Form form("name", 12, 13);
+    try
+    {
+        Bureaucrat bureaucrat(4277, "aha");
+        Form form("lh", 43, 53);
+        bureaucrat.signForm(form);
+        std::cout << form << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << e.what() << "\n";
+    };
 
-    Form f(form);
-
-    f = form;
-
-    std::cout << form.get_name() << std::endl;
-    std::cout << form.get_gradeRequiredtoExecute() << std::endl;
-    std::cout << form.get_gradeRequiredtoSign() << std::endl;
     return 0;
 }
