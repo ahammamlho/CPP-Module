@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 10:33:05 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/05 10:44:16 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/05 11:24:01 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SHRUBBERY_HPP
+#define SHRUBBERY_HPP
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
-int main(void)
+class Bureaucrat;
+
+class ShrubberyCreationForm : public AForm
 {
-    try
-    {
-        Bureaucrat bureaucrat(47, "ahamm");
-        Form form("lho", 143, 53);
-        bureaucrat.signForm(form);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << e.what() << "\n";
-    };
+private:
+    const std::string target;
+    const int gradetoSign;
+    const int gradetoExecute;
 
-    return 0;
-}
+public:
+    ShrubberyCreationForm(std::string target);
+    ~ShrubberyCreationForm();
+
+    void execute(Bureaucrat const &executor) const;
+};
+
+#endif

@@ -6,13 +6,13 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 10:19:03 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/05 11:37:40 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("null")
+Bureaucrat::Bureaucrat() : name("Null")
 {
     grade = 1;
 };
@@ -60,5 +60,30 @@ int Bureaucrat::getGrade() const { return grade; };
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() { return "grade must be > 1"; };
 const char *Bureaucrat::GradeTooLowException::what() const throw() { return "greade must be < 150"; };
+
+void Bureaucrat::signForm(AForm &form) const
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.get_name() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << name << " coulnd't sign " << form.get_name() << " because " << e.what() << std::endl;
+    }
+};
+
+void Bureaucrat::executeForm(AForm &form) const
+{
+    if (grade >= form.get_gradeRequiredtoExecute())
+    {
+        std::cout << this->getName() << " executed " << form.get_name() << std::endl;
+    }
+    else
+    {
+        std::cout << name << " coulnd't execut " << form.get_name() << std::endl;
+    }
+};
 
 Bureaucrat::~Bureaucrat(){};

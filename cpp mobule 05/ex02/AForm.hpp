@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 13:49:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 10:02:44 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/24 11:38:15 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/05 11:18:32 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string.h>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Bureaucrat;
+
+class AForm
 {
+
 private:
     const std::string name;
-    int grade;
+    bool isSigned;
+    const int gradeRequiredtoSign;
+    const int gradeRequiredtoExecute;
 
 public:
-    Bureaucrat();
-    Bureaucrat(const int grd, const std::string name);
-    Bureaucrat(const Bureaucrat &old);
-    Bureaucrat &operator=(const Bureaucrat &old);
-    ~Bureaucrat();
-
-    std::string getName() const;
-    int getGrade() const;
-    void increment();
-    void decrement();
+    AForm();
+    AForm(const std::string name, const int gradeSign, const int gradeExecute);
+    AForm(const AForm &old);
+    AForm &operator=(const AForm &old);
+    ~AForm();
 
     class GradeTooHighException : public std::exception
     {
@@ -44,8 +45,16 @@ public:
     public:
         const char *what() const throw();
     };
+
+    std::string get_name() const;
+    bool get_isSigned() const;
+    int get_gradeRequiredtoSign() const;
+    int get_gradeRequiredtoExecute() const;
+
+    void beSigned(const Bureaucrat &bur);
+    virtual void execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &COUT, const Bureaucrat &bure);
+std::ostream &operator<<(std::ostream &COUT, const AForm &form);
 
 #endif

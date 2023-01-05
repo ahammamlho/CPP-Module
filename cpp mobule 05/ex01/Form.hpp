@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:38:15 by lahammam          #+#    #+#             */
-/*   Updated: 2022/12/26 22:15:28 by ahammam          ###   ########.fr       */
+/*   Updated: 2023/01/05 10:20:55 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ public:
     bool get_isSigned() const;
     int get_gradeRequiredtoSign() const;
     int get_gradeRequiredtoExecute() const;
+
     void beSigned(const Bureaucrat &bur);
 };
+
 std::ostream &operator<<(std::ostream &COUT, const Form &form);
+
 #endif
