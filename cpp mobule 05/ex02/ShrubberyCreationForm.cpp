@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:46:46 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/06 15:04:05 by ahammam          ###   ########.fr       */
+/*   Updated: 2023/01/06 18:37:23 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
     : AForm("ShrubberyCreationForm", 145, 137), target("null"){};
@@ -33,6 +35,30 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
         throw AForm::FormIsNotSigned();
     else if (executor.getGrade() < get_gradeRequiredtoExecute())
         throw AForm::GradeTooLowException();
+
+    std::ofstream outFile;
+    outFile.open(target + "_shrubbery");
+    if (!outFile)
+    {
+        std::cout << "Unable to open file" << std::endl;
+        exit(0);
+    }
+    outFile << "               .                  \n";
+    outFile << "              --                  \n";
+    outFile << "             /   \\               \n";
+    outFile << "            /     \\              \n";
+    outFile << "           /       \\             \n";
+    outFile << "          /         \\            \n";
+    outFile << "         /           \\           \n";
+    outFile << "        /             \\          \n";
+    outFile << "       /               \\         \n";
+    outFile << "      /                 \\        \n";
+    outFile << "      -------------------         \n";
+    outFile << "           |       |              \n";
+    outFile << "           |       |              \n";
+    outFile << "           |       |              \n";
+    outFile << "           |       |              \n";
+    outFile.close();
 };
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){};

@@ -6,17 +6,17 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:38:13 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 10:32:19 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:45:10 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 Form::Form()
-    : name("name"), isSigned(true), gradeRequiredtoSign(4), gradeRequiredtoExecute(10){};
+    : name("name"), isSigned(false), gradeRequiredtoSign(4), gradeRequiredtoExecute(10){};
 
 Form::Form(const std::string name, const int gradeSign, const int gradeExecute)
-    : name(name), gradeRequiredtoSign(gradeSign), gradeRequiredtoExecute(gradeExecute)
+    : name(name), isSigned(false), gradeRequiredtoSign(gradeSign), gradeRequiredtoExecute(gradeExecute)
 {
     if (gradeRequiredtoSign < 1 || gradeRequiredtoExecute < 1)
         throw Form::GradeTooHighException();
