@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:38:13 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 11:18:17 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:54:24 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ AForm &AForm::operator=(const AForm &old)
 
 const char *AForm::GradeTooHighException::what() const throw() { return "Grade Too High"; };
 const char *AForm::GradeTooLowException::what() const throw() { return "Greade Too Low"; };
+const char *AForm::FormIsNotSigned::what() const throw() { return "Form Is Not Signed"; };
 
 std::string AForm::get_name() const { return name; };
 bool AForm::get_isSigned() const { return isSigned; };

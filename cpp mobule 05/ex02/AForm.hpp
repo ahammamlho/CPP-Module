@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 11:38:15 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 11:18:32 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:53:55 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
     AForm(const std::string name, const int gradeSign, const int gradeExecute);
     AForm(const AForm &old);
     AForm &operator=(const AForm &old);
-    ~AForm();
+    virtual ~AForm();
 
     class GradeTooHighException : public std::exception
     {
@@ -41,6 +41,11 @@ public:
         const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+    class FormIsNotSigned : public std::exception
     {
     public:
         const char *what() const throw();
