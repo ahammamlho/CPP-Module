@@ -6,7 +6,7 @@
 /*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 10:44:16 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 19:53:33 by ahammam          ###   ########.fr       */
+/*   Updated: 2023/01/06 14:47:07 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ private:
 public:
     ShrubberyCreationForm();
     ShrubberyCreationForm(std::string target);
+    ShrubberyCreationForm(const ShrubberyCreationForm &old);
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &old);
     ~ShrubberyCreationForm();
 
     void execute(Bureaucrat const &executor) const;
