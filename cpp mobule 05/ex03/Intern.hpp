@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/07 10:36:01 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/07 10:03:16 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/07 10:19:46 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef INTERN_HPP
+#define INTERN_HPP
+#include <string>
 #include "AForm.hpp"
-#include "Intern.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main(void)
+class Intern
 {
-    Bureaucrat burea(148, "lh");
-    Intern someRandomIntern;
-    AForm *rrf;
-    rrf = someRandomIntern.makeForm("Shrubbery request", "Bender");
 
-    try
-    {
-        rrf->beSigned(burea);
-        rrf->execute(burea);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+public:
+    Intern();
+    Intern(const Intern &old);
+    Intern &operator=(const Intern &old);
+    ~Intern();
 
-    delete rrf;
-    return 0;
-}
+    AForm *makeForm(std::string nameForm, std::string target);
+};
+
+#endif
