@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   utiles.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/07 20:41:59 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/07 20:40:26 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/07 20:41:27 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#include "header.hpp"
 
-#include <iostream>
-#include <string.h>
-#include <typeinfo>
+int ft_strlen(char *str)
+{
+    int i;
 
-int ft_strlen(char *str);
-int ft_is_int(char *str);
-void typeInt(int num);
-#endif
+    i = 0;
+    while (str && str[i])
+    {
+        i++;
+    }
+    return (i);
+}
