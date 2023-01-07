@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/07 09:08:34 by ahammam          ###   ########.fr       */
+/*   Updated: 2023/01/07 11:07:31 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ std::string Bureaucrat::getName() const { return name; };
 
 int Bureaucrat::getGrade() const { return grade; };
 
-const char *Bureaucrat::GradeTooHighException::what() const throw() { return "grade must be > 1"; };
-const char *Bureaucrat::GradeTooLowException::what() const throw() { return "greade must be < 150"; };
+const char *Bureaucrat::GradeTooHighException::what() const throw() { return "Grade Too High"; };
+const char *Bureaucrat::GradeTooLowException::what() const throw() { return "Greade Too Low"; };
 
 void Bureaucrat::signForm(AForm &form) const
 {
