@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:37:45 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/05 11:37:40 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/07 09:08:34 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,14 @@ void Bureaucrat::signForm(AForm &form) const
 
 void Bureaucrat::executeForm(AForm &form) const
 {
-    if (grade >= form.get_gradeRequiredtoExecute())
+    try
     {
+        form.execute(*this);
         std::cout << this->getName() << " executed " << form.get_name() << std::endl;
     }
-    else
+    catch (const std::exception &e)
     {
-        std::cout << name << " coulnd't execut " << form.get_name() << std::endl;
+        std::cout << name << " coulnd't execut " << form.get_name() << " because " << e.what() << std::endl;
     }
 };
 
