@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/07 20:41:59 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/08 12:08:13 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include <iostream>
 #include <string.h>
 #include <typeinfo>
+#include <iomanip>
+#include <limits>
 
-int ft_strlen(char *str);
-int ft_is_int(char *str);
-void typeInt(int num);
 #endif

@@ -6,15 +6,15 @@
 #    By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/05 11:42:37 by lahammam          #+#    #+#              #
-#    Updated: 2023/01/07 20:42:19 by lahammam         ###   ########.fr        #
+#    Updated: 2023/01/08 12:28:51 by lahammam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = convert
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =	main.cpp utiles.cpp int_handle.cpp
+SRCS =	main.cpp 
 
 Include	= header.hpp
 
