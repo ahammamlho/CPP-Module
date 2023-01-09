@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 12:32:49 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:12:52 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <string.h>
 #include <typeinfo>
 #include <iomanip>
-#include <limits>
+
+struct Data
+{
+    int nbr;
+};
 
 #endif
