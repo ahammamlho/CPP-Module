@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:18:35 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 13:08:14 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:46:17 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+
 #include <cstdlib>
+#include <ctime>
+
 #include <iostream>
 
 Base::Base()
@@ -23,12 +26,13 @@ Base::Base()
 
 Base *Base::generate(void)
 {
+    std::srand(std::time(nullptr));
     int rnd = rand() % 3;
     Base *result = NULL;
     A *a;
     B *b;
     C *c;
-    rnd = 2;
+    std::cout << "rnd--> " << rnd << std::endl;
     switch (rnd)
     {
     case 0:
