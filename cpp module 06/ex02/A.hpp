@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 12:32:49 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/09 12:19:15 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/09 12:21:30 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#ifndef A_HPP
+#define A_HPP
 
-#include <iostream>
-#include <string.h>
-#include <typeinfo>
-#include <iomanip>
-#include <limits>
+#include "Base.hpp"
+
+class A : public Base
+{
+private:
+public:
+    A();
+    ~A();
+};
 
 #endif

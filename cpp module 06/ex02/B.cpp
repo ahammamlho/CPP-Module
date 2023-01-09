@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 12:32:49 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/09 12:20:17 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/09 12:22:25 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#include "B.hpp"
 
-#include <iostream>
-#include <string.h>
-#include <typeinfo>
-#include <iomanip>
-#include <limits>
+B::B()
+{
+}
 
-#endif
+B::~B()
+{
+}

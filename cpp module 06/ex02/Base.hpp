@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 12:32:49 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/09 12:17:26 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/09 12:59:15 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#ifndef BASS_HPP
+#define BASS_HPP
 
-#include <iostream>
-#include <string.h>
-#include <typeinfo>
-#include <iomanip>
-#include <limits>
+class Base
+{
+private:
+public:
+    Base();
+    virtual ~Base();
+
+    Base *generate(void);
+    void identify(Base *p);
+};
 
 #endif
