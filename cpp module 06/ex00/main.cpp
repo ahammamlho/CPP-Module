@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 17:42:03 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:43:36 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,15 @@ void ft_printInt(char *str)
     char *end;
     double number;
     number = std::strtod(str, &end);
+
     if (is_string(str) || is_specialValues(str))
-        std::cout
-            << "int: "
-            << "impossible" << std::endl;
+        if (strlen(str) == 1)
+            std::cout << "int: "
+                      << static_cast<int>(str[0]) << std::endl;
+        else
+            std::cout
+                << "int: "
+                << "impossible" << std::endl;
     else
     {
         if (static_cast<double>(INT_MIN) <= number && static_cast<double>(INT_MAX) >= number)
@@ -91,9 +96,15 @@ void ft_printFloat(char *str)
     if (is_specialValues(str))
         std::cout << "float: " << static_cast<float>(number) << "f" << std::endl;
     else if (is_string(str))
-        std::cout
-            << "float: "
-            << "impossible" << std::endl;
+    {
+        if (strlen(str) == 1)
+            std::cout << "float: "
+                      << static_cast<float>(str[0]) << std::endl;
+        else
+            std::cout
+                << "float: "
+                << "impossible" << std::endl;
+    }
     else
     {
         temp = static_cast<int>(number);
@@ -113,9 +124,15 @@ void ft_printDouble(char *str)
     if (is_specialValues(str))
         std::cout << "double: " << number << std::endl;
     else if (is_string(str))
-        std::cout
-            << "double: "
-            << "impossible" << std::endl;
+    {
+        if (strlen(str) == 1)
+            std::cout << "double: "
+                      << static_cast<double>(str[0]) << std::endl;
+        else
+            std::cout
+                << "double: "
+                << "impossible" << std::endl;
+    }
     else
     {
         temp = static_cast<int>(number);
