@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/08 12:28:38 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:42:03 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int is_specialValues(char *str)
         return (1);
     return (0);
 }
+
 int is_string(char *str)
 {
     int i;
@@ -52,7 +53,7 @@ void ft_printChar(char *str)
 {
     if (strlen(str) == 1)
         std::cout << "char: "
-                  << str << std::endl;
+                  << static_cast<char>(str[0]) << std::endl;
     else if (is_string(str) || is_specialValues(str))
         std::cout << "char: "
                   << "impossible" << std::endl;
@@ -60,6 +61,7 @@ void ft_printChar(char *str)
         std::cout << "char: "
                   << "Non displayable" << std::endl;
 }
+
 void ft_printInt(char *str)
 {
     char *end;
@@ -79,6 +81,7 @@ void ft_printInt(char *str)
                 << "impossible" << std::endl;
     }
 }
+
 void ft_printFloat(char *str)
 {
     char *end;
@@ -127,7 +130,7 @@ int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cout << "./convert arg" << std::endl;
+        std::cout << "Error ./convert arg" << std::endl;
         return 1;
     }
 

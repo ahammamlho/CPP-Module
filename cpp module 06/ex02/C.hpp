@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:19:15 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 12:22:43 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:03:14 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 
 class C : public Base
 {
-private:
-public:
-    C();
-    ~C();
 };
 
 #endif
