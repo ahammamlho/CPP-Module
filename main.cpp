@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 12:17:26 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/10 11:46:44 by lahammam         ###   ########.fr       */
+/*   Created: 2023/01/10 11:22:14 by lahammam          #+#    #+#             */
+/*   Updated: 2023/01/10 11:59:58 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASS_HPP
-#define BASS_HPP
-
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
+#include <string.h>
+#include <typeinfo>
+#include <iomanip>
+#include <limits>
 
-class Base
+class A
 {
-public:
-    virtual ~Base();
 };
 
-#endif
+class B : public A
+{
+};
+
+int main()
+{
+    A *a = new A();
+    B *b = static_cast<B *>(a);
+    return 0;
+}

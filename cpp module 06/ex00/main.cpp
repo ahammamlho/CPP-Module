@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/09 20:43:36 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:05:23 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int is_string(char *str)
 
 void ft_printChar(char *str)
 {
+    char *end;
+    double number;
+    number = std::strtod(str, &end);
+
     if (strlen(str) == 1)
         std::cout << "char: "
                   << static_cast<char>(str[0]) << std::endl;
@@ -58,8 +62,14 @@ void ft_printChar(char *str)
         std::cout << "char: "
                   << "impossible" << std::endl;
     else
-        std::cout << "char: "
-                  << "Non displayable" << std::endl;
+    {
+        if (number >= 0 && number <= 127)
+            std::cout << "char: "
+                      << static_cast<char>(number) << std::endl;
+        else
+            std::cout << "char: "
+                      << "Non displayable" << std::endl;
+    }
 }
 
 void ft_printInt(char *str)
