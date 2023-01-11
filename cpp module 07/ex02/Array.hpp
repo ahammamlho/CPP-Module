@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/10 14:50:33 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:16:48 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,43 @@ template <class T>
 class Array
 {
 private:
-    T element;
+    T *element;
 
 public:
-    Array()
-    {
-        std::array<T, 0> emptyArray;
+    Array(){
+
     };
-    ~Array();
+    Array(unsigned int n)
+    {
+        element = new T[n];
+    };
+
+    int size()
+    {
+        unsigned int len;
+        try
+        {
+            (void)element[0];
+            len = sizeof(element) / sizeof(T);
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+            len = 0;
+        }
+        return (len);
+    }
+    // Array &operator=(const Array &other)
+    // {
+    //     return (*this);
+    // }
+    T &operator[](int index)
+    {
+        if (index < 0 || index >= this->size())
+            throw std::exception();
+        return (element[index]);
+    }
+    ~Array(){};
 };
-
-Array::Array()
-{
-}
-
-Array::~Array()
-{
-}
 
 #endif
