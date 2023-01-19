@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/11 11:16:48 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:46:35 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,42 +21,74 @@ class Array
 {
 private:
     T *element;
+    unsigned int len;
 
 public:
-    Array(){
+    int get_len()
+    {
+        return len;
+    }
 
+    Array()
+    {
+        element = new T[0];
+        len = 0;
     };
+
     Array(unsigned int n)
     {
         element = new T[n];
+        len = n;
     };
 
-    int size()
+    Array(const Array &other)
     {
-        unsigned int len;
-        try
+        len = other.len;
+        element = new T[len];
+        for (unsigned int i = 0; i < len; i++)
         {
-            (void)element[0];
-            len = sizeof(element) / sizeof(T);
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << e.what() << '\n';
-            len = 0;
-        }
-        return (len);
+            element[i] = other.element[i];
+        };
     }
-    // Array &operator=(const Array &other)
-    // {
-    //     return (*this);
-    // }
-    T &operator[](int index)
+
+    Array &operator=(Array &other)
     {
-        if (index < 0 || index >= this->size())
-            throw std::exception();
-        return (element[index]);
+        delete[] element;
+        len = other.len;
+        element = new T[len];
+        for (unsigned int i = 0; i < len; i++)
+        {
+            element[i] = other.element[i];
+        };
+        return (*this);
     }
-    ~Array(){};
+
+    class IndexOutOfBounds : public std::exception
+    {
+    public:
+        virtual const char *what() const throw()
+        {
+            return "Index is out of bounds";
+        };
+    };
+
+    T &operator[](unsigned int i)
+    {
+        if (i >= len)
+            throw IndexOutOfBounds();
+        return element[i];
+    }
+
+    unsigned int size()
+    {
+        return len;
+    }
+
+    ~Array()
+    {
+        delete[] element;
+    };
 };
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/11 09:54:49 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:06:43 by ahammam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ T min(T a, T b)
 {
     if (a < b)
         return (a);
-    else
-        return b;
+    return b;
 }
 
 template <typename T>
@@ -39,8 +38,7 @@ T max(T a, T b)
 {
     if (a > b)
         return (a);
-    else
-        return b;
+    return b;
 }
 
 #endif
