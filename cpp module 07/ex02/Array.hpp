@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahammam <ahammam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/19 14:46:35 by ahammam          ###   ########.fr       */
+/*   Updated: 2023/01/24 09:00:35 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,18 @@ private:
     unsigned int len;
 
 public:
-    int get_len()
-    {
-        return len;
-    }
-
     Array()
     {
         element = new T[0];
         len = 0;
+        std::cout << "condtuctor 0\n";
     };
 
     Array(unsigned int n)
     {
         element = new T[n];
         len = n;
+        std::cout << "condtuctor 1\n";
     };
 
     Array(const Array &other)
@@ -49,6 +46,7 @@ public:
         {
             element[i] = other.element[i];
         };
+        std::cout << "condtuctor 3\n";
     }
 
     Array &operator=(Array &other)
@@ -89,6 +87,5 @@ public:
         delete[] element;
     };
 };
-
 
 #endif
