@@ -6,19 +6,30 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/25 11:59:29 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:07:54 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include "Span.hpp"
 
 int main(void)
 {
-    std::vector<int> vect;
-    vect.push_back(10);
-    vect.push_back(20);
-    vect.push_back(30);
-    easyfind(vect, 200);
-    easyfind(vect, 20);
+
+    Span sp = Span(5);
+    sp.addNumber(6);
+    sp.addNumber(3);
+    sp.addNumber(17);
+    sp.addNumber(9);
+    sp.addNumber(11);
+
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+
+    std::cout << "-------------------------" << std::endl;
+
+    Span sp2 = Span(1520);
+    sp2.filldata(1250);
+    std::cout << sp2.shortestSpan() << std::endl;
+    std::cout << sp2.longestSpan() << std::endl;
     return 0;
 };
