@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/25 21:16:05 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/25 23:10:27 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,52 +16,16 @@
 #include <iostream>
 #include <string.h>
 #include <vector>
+#include <stack>
+#include <deque>
 
-template <typename T>
-class MutantStack
+template <class T, class Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container>
 {
 private:
-    std::vector<T> mystack;
 
 public:
     MutantStack(){};
-
-    unsigned int size()
-    {
-        return mystack.size();
-    }
-
-    T top()
-    {
-        return *(mystack.end() - 1);
-    }
-
-    bool empty()
-    {
-        if (mystack.size() == 0)
-            return (0);
-        return (1);
-    }
-
-    void push(T elm)
-    {
-        mystack.push_back(elm);
-    };
-
-    void pop()
-    {
-        std::vector<T>::iterator it = mystack.end();
-        mystack.erase(it - 1);
-    };
-    std::vector<T>::iterator begin()
-    {
-        return mystack.begin();
-    };
-
-    std::vector<T>::iterator end()
-    {
-        return mystack.end();
-    };
 
     ~MutantStack(){};
 };
