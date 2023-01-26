@@ -6,13 +6,16 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 11:51:02 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/26 13:30:54 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:37:36 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(){};
+Span::Span(){
+    len = 0;
+    std::vector<int> vec(0);
+};
 
 Span::Span(unsigned int N)
 {
@@ -41,10 +44,12 @@ void Span::filldata(unsigned int ele)
         catch (const std::exception &e)
         {
             std::cerr << e.what() << '\n';
+            break;
         }
         i++;
     }
 };
+
 unsigned int get_distance(int nbr1, int nbr2)
 {
     if (nbr1 > nbr2)

@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:25:52 by lahammam          #+#    #+#             */
-/*   Updated: 2023/01/25 11:59:09 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/01/26 14:22:21 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ template <typename T>
 void easyfind(T ctr, int len)
 {
     typename T::iterator it = std::find(ctr.begin(), ctr.end(), len);
-    std::cout << *it << std::endl;
+    // std::cout << ctr << std::endl;
     if (it != ctr.end())
         std::cout << "Element found" << std::endl;
     else
