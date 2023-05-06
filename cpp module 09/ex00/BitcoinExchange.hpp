@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:17 by lahammam          #+#    #+#             */
-/*   Updated: 2023/03/19 12:27:05 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/06 11:40:49 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iostream>
 #include <sstream>
 #include <chrono>
+#include <map>
+#include <fstream>
 
 class BitcoinExchange
 {
@@ -29,6 +31,8 @@ private:
 
     double _result;
 
+    std::string _error;
+
 public:
     BitcoinExchange();
     BitcoinExchange(std::string arg);
@@ -39,8 +43,28 @@ public:
     double getAmount() const;
     std::string getDate() const;
     std::string getArg() const;
+    std::string getError() const;
+    void setError(std::string err);
+    void ft_parce();
+    bool is_valid_date(const std::string date_str) const;
 
     void handleDate();
+    std::time_t dateSeconds();
+    class BadFormatException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+    class NotPosiNumException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+    class LargerNumException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
 
     ~BitcoinExchange();
 };
