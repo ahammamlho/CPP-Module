@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/03/19 15:11:34 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/03/20 12:07:02 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,23 @@
 
 bool is_valid_date(const std::string &date_str)
 {
-    std::istringstream iss(date_str);
+    std::istringstream iss(date_str); // 65464654*
 
     int year, month, day;
     char delimiter;
 
+    // sscanf(date_str.c_str(), "%d-%d-%d", year, month, day);
+
     if (iss >> year >> delimiter >> month >> delimiter >> day)
     {
         std::tm tm_date;
-        tm_date.tm_year = year - 1900;
+        tm_date.tm_year = year * -1900;
         tm_date.tm_mon = month - 1;
         tm_date.tm_mday = day;
 
-        std::time_t time_date = std::mktime(&tm_date);
+        std::time_t time_date = std::mktime(&tm_date); // 2023-02-55
+        std::cout << time_date << "\n";
+        std::cout << tm_date.tm_year + 1900 << "-" << tm_date.tm_mon + 1 << "-" << tm_date.tm_mday << "\n";
         if (tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
         {
             if (time_date != -1)
@@ -36,68 +40,70 @@ bool is_valid_date(const std::string &date_str)
     return false;
 }
 
-std::string ft_parce(std::string temp, int k)
-{
-    std::string date;
-    std::string amount;
-    int pipe = 0;
+// std::string ft_parce(std::string temp, int k)
+// {
+//     std::string date;
+//     std::string amount;
+//     int pipe = 0;
 
-    for (size_t i = 0; i < temp.size(); i++)
+//     for (size_t i = 0; i < temp.size(); i++)
+//     {
+//         if (pipe > 1)
+//         {
+//             std::cout << "Error: bad input => " << temp << std::endl;
+//             // throw 0;
+//         }
+//         if (pipe == 0)
+//         {
+//             if (temp[i] == '|')
+//                 pipe++;
+//             else
+//                 date += temp[i];
+//         }
+//         else
+//             amount += temp[i];
+//     }
+//     date.erase(0, date.find_first_not_of(' '));
+//     date.erase(date.find_last_not_of(' ') + 1);
+//     amount.erase(0, amount.find_first_not_of(' '));
+//     amount.erase(amount.find_last_not_of(' ') + 1);
+//     if (k == 0)
+//         return date;
+//     return (amount);
+// };
+
+int main()
+{
+    std::string date_str = "2023-02-01";
+    if (is_valid_date(date_str))
     {
-        if (pipe > 1)
-        {
-            std::cout << "Error: bad input => " << temp << std::endl;
-            // throw 0;
-        }
-        if (pipe == 0)
-        {
-            if (temp[i] == '|')
-                pipe++;
-            else
-                date += temp[i];
-        }
-        else
-            amount += temp[i];
+        std::cout << "The date " << date_str << " is valid." << std::endl;
     }
-    date.erase(0, date.find_first_not_of(' '));
-    date.erase(date.find_last_not_of(' ') + 1);
-    amount.erase(0, amount.find_first_not_of(' '));
-    amount.erase(amount.find_last_not_of(' ') + 1);
-    if (k == 0)
-        return date;
-    return (amount);
-};
-
-int main(int ac, char **av)
-{
-    if (ac != 2)
-        std::cout << "=> Please enter: ./btc fileName\n";
     else
     {
-        try
-        {
-            std::string date;
-            std::string amount;
-
-            date = ft_parce(av[1], 0);
-            amount = ft_parce(av[1], 0);
-            std::cout << "date-> |" << date;
-            std::cout << "|\namount->|" << amount << "|\n";
-            // BitcoinExchange bitcoin(av[1]);
-            // std::string date_str = "2023-02-28";
-            // if (is_valid_date(date_str))
-            // {
-            //     std::cout << "The date " << date_str << " is valid." << std::endl;
-            // }
-            // else
-            // {
-            //     std::cout << "The date " << date_str << " is not valid." << std::endl;
-            // }
-        }
-        catch (int i)
-        {
-            ;
-        }
+        std::cout << "The date " << date_str << " is not valid." << std::endl;
     }
+    // if (ac != 2)
+    //     std::cout << "=> Please enter: ./btc fileName\n";
+    // else
+    // {
+    //     try
+    //     {
+    //         std::string date;
+    //         std::string amount;
+
+    //         // date = ft_parce(av[1], 0);
+    //         // amount = ft_parce(av[1], 0);
+    //         // std::cout << "date-> |" << date;
+    //         // std::cout << "|\namount->|" << amount << "|\n";
+    //         // BitcoinExchange bitcoin(av[1]);
+    //         // std::string date_str = "2023-02-28";
+
+    //     }
+    //     catch (int i)
+    //     {
+    //         ;
+    //     }
+    // }
     return 0;
 }
