@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:17 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/06 11:40:49 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/06 19:57:06 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ public:
     std::string getError() const;
     void setError(std::string err);
     void ft_parce();
-    bool is_valid_date(const std::string date_str) const;
+    bool is_valid_date() const;
 
     void handleDate();
     std::time_t dateSeconds();

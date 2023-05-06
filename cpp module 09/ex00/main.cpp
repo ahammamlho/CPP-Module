@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/06 12:42:09 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/06 20:13:12 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int ac, char **av)
             std::cout << "Error opening file.\n";
             return 1;
         }
+        BitcoinExchange bitcoin;
         std::string line;
         std::getline(file, line);
         while (std::getline(file, line))
@@ -31,9 +32,10 @@ int main(int ac, char **av)
             BitcoinExchange bitcoin(line);
             try
             {
+
                 bitcoin.ft_parce();
                 // std::time_t time_date = bitcoin.dateSeconds();
-                std::cout << "- " << bitcoin.getDate() << std::endl;
+                // std::cout << "- " << bitcoin.getDate() << std::endl;
             }
             catch (std::exception &e)
             {

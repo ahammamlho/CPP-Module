@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:20 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/06 12:27:43 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/06 20:12:14 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ BitcoinExchange::BitcoinExchange(){};
 BitcoinExchange::BitcoinExchange(std::string arg)
 {
     _arg = arg;
+    _date = "";
+    _amount = 0.0;
+    _result = 0;
+    _error = "";
 }
 
 double BitcoinExchange::getAmount() const
@@ -62,29 +66,31 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     return (*this);
 };
 
-bool BitcoinExchange::is_valid_date(const std::string date_str) const
-{
-    std::istringstream iss(date_str);
+// bool BitcoinExchange::is_valid_date() const
+// {
+//     std::istringstream iss(_date);
 
-    int year, month, day;
-    char delimiter;
+//     int year, month, day;
+//     char delimiter;
 
-    if (iss >> year >> delimiter >> month >> delimiter >> day)
-    {
-        std::tm tm_date;
-        tm_date.tm_year = year - 1900;
-        tm_date.tm_mon = month - 1;
-        tm_date.tm_mday = day;
+//     if (iss >> year >> delimiter >> month >> delimiter >> day)
+//     {
+//         std::tm tm_date;
+//         tm_date.tm_year = year - 1900;
+//         tm_date.tm_mon = month - 1;
+//         tm_date.tm_mday = day;
 
-        std::time_t time_date = std::mktime(&tm_date);
-        if (tm_date.tm_year == year - 1900 && tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
-        {
-            if (time_date != -1)
-                return true;
-        }
-    }
-    return false;
-}
+//         std::time_t time_date = std::mktime(&tm_date);
+//         std::cout << "---> " << time_date << "\n";
+//         if (tm_date.tm_year == year - 1900 && tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
+//         {
+
+//             if (time_date != -1)
+//                 return true;
+//         }
+//     }
+//     return false;
+// }
 
 std::time_t BitcoinExchange::dateSeconds()
 {
@@ -104,6 +110,34 @@ std::time_t BitcoinExchange::dateSeconds()
 
     return time_dat;
 };
+bool BitcoinExchange::is_valid_date() const
+{
+    std::istringstream iss(_date);
+
+    int year, month, day;
+    char delimiter;
+
+    if (iss >> year >> delimiter >> month >> delimiter >> day)
+    {
+        std::tm tm_date;
+        tm_date.tm_year = year - 1900;
+        tm_date.tm_mon = month - 1;
+        tm_date.tm_mday = day;
+        tm_date.tm_hour = 0;
+        tm_date.tm_min = 0;
+        tm_date.tm_sec = 0;
+
+        std::time_t time_date = std::mktime(&tm_date);
+        std::cout << "--->" << time_date << "-- " << year << "-" << month << "-" << day << "\n";
+        if (tm_date.tm_year == year - 1900 && tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
+        {
+            if (time_date != -1)
+                return true;
+            std::cout << "--->" << time_date << "\n";
+        }
+    }
+    return false;
+}
 void BitcoinExchange::ft_parce()
 {
     std::string amount;
@@ -131,7 +165,7 @@ void BitcoinExchange::ft_parce()
     amount.erase(0, amount.find_first_not_of(' '));
     amount.erase(amount.find_last_not_of(' ') + 1);
 
-    if (is_valid_date(_date) == false)
+    if (is_valid_date() == false)
     {
         _error = _date;
         throw BitcoinExchange::BadFormatException();
