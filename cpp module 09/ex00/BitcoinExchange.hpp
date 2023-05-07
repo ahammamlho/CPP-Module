@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:17 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 11:38:38 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 11:45:44 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ class BitcoinExchange
 private:
     std::string _arg;
 
-    double _amount;
     std::string _date;
 
+    double _amount;
     double _result;
+    std::map<std::string, double> _myMap;
 
     std::string _error;
 

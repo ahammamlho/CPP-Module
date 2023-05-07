@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:20 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 11:37:56 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 11:55:44 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ BitcoinExchange::BitcoinExchange(std::string arg)
 {
     _arg = arg;
     _date = "";
+
     _amount = 0.0;
     _result = 0;
     _error = "";
@@ -195,8 +196,7 @@ void BitcoinExchange::ft_parce()
 
 void BitcoinExchange::calculBitc()
 {
-
-    int i = 0;
+    std::deque<std::string> myDeque;
     std::string line;
     std::string amnt;
     std::string line_tmp;
@@ -214,16 +214,17 @@ void BitcoinExchange::calculBitc()
     {
         dt = line.substr(0, 10);
         dts_tmp = dateSecondsResult(dt);
-        if (i == 0)
-            line_tmp = line;
+        myDeque.push_front(line);
         if (_timeDate < dts_tmp)
         {
-            amnt = line_tmp.substr(11);
+            if (myDeque.size() != 1)
+                myDeque.pop_front();
+            amnt = myDeque.front().substr(11);
             _result = _amount * std::stod(amnt);
             break;
         }
-        line_tmp = line;
-        i++;
+        if (myDeque.size() != 1)
+            myDeque.pop_back();
     }
     file.close();
 };
