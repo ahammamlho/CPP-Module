@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:59:34 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 13:21:00 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 22:20:10 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ public:
 
     void parce();
     void calcul(char oper);
+    void printResult();
+
+    class ErrorException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
     ~RPN();
 };
 

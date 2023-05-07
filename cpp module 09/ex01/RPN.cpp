@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:59:28 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 13:35:23 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 22:25:07 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,54 +28,64 @@ void RPN::parce()
 
     while (_arg[i])
     {
+        if (_arg[i] <= '9' && _arg[i] >= '0' && _arg[i + 1] <= '9' && _arg[i + 1] >= '0')
+            throw RPN::ErrorException();
         if (_arg[i] != ' ')
             tmp += _arg[i];
+
         i++;
     }
     std::cout << tmp << "\n";
     i = 0;
-    if (tmp[i] <= '9' && tmp[i] >= '0')
-        _numbers.push(tmp[i] - 48);
-    else
-        std::cout << "invalid format .." << i << "\n";
-    i++;
     while (tmp[i])
     {
-        if (tmp[i] <= '9' && tmp[i] >= '0')
+        if (tmp[i] > '9' || tmp[i] < '0' || tmp[i] != '*' || tmp[i] != '-' || tmp[i] != '+' || tmp[i] != '/')
+            throw RPN::ErrorException();
+        while (tmp[i] <= '9' && tmp[i] >= '0')
+        {
             _numbers.push(tmp[i] - 48);
-        else
-            std::cout << "invalid format" << i << "\n";
-        i++;
-        if (tmp[i] == '*' || tmp[i] == '-' || tmp[i] == '+' || tmp[i] == '/')
+            i++;
+        }
+        while (tmp[i] == '*' || tmp[i] == '-' || tmp[i] == '+' || tmp[i] == '/')
         {
             calcul(tmp[i]);
+            i++;
         }
-        else
-            std::cout << "invalid format ... " << i << "\n";
-        i++;
     }
-    std::cout << "The top element of the stack is: " << _numbers.top() << std::endl;
+};
+
+void RPN::printResult()
+{
+    if (_numbers.size() == 1)
+        std::cout << "Resu: " << _numbers.top() << std::endl;
+    else
+        throw RPN::ErrorException();
 };
 
 void RPN::calcul(char oper)
 {
     int result;
     int nbr1;
+    int nbr2;
 
+    if (_numbers.size() < 2)
+        throw RPN::ErrorException();
     nbr1 = _numbers.top();
     _numbers.pop();
-    if (oper == '*')
-        result = nbr1 * _numbers.top();
-    if (oper == '/')
-        result = _numbers.top() / nbr1;
-    if (oper == '+')
-        result = nbr1 + _numbers.top();
-    if (oper == '-')
-        result = _numbers.top() - nbr1;
+    nbr2 = _numbers.top();
     _numbers.pop();
+    if (oper == '*')
+        result = nbr1 * nbr2;
+    if (oper == '/')
+        result = nbr2 / nbr1;
+    if (oper == '+')
+        result = nbr1 + nbr2;
+    if (oper == '-')
+        result = nbr2 - nbr1;
     _numbers.push(result);
 };
 
+const char *RPN::ErrorException::what() const throw() { return "Error"; };
 RPN::~RPN()
 {
 }
