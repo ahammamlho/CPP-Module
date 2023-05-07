@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:20 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/06 20:12:14 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 11:37:56 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ std::string BitcoinExchange::getError() const
     return _error;
 };
 
+std::time_t BitcoinExchange::getDateSeconds() const
+{
+    return _timeDate;
+};
+
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
 {
     *this = other;
@@ -66,33 +71,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
     return (*this);
 };
 
-// bool BitcoinExchange::is_valid_date() const
-// {
-//     std::istringstream iss(_date);
-
-//     int year, month, day;
-//     char delimiter;
-
-//     if (iss >> year >> delimiter >> month >> delimiter >> day)
-//     {
-//         std::tm tm_date;
-//         tm_date.tm_year = year - 1900;
-//         tm_date.tm_mon = month - 1;
-//         tm_date.tm_mday = day;
-
-//         std::time_t time_date = std::mktime(&tm_date);
-//         std::cout << "---> " << time_date << "\n";
-//         if (tm_date.tm_year == year - 1900 && tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
-//         {
-
-//             if (time_date != -1)
-//                 return true;
-//         }
-//     }
-//     return false;
-// }
-
-std::time_t BitcoinExchange::dateSeconds()
+void BitcoinExchange::dateSeconds()
 {
     std::istringstream iss(_date);
 
@@ -101,15 +80,34 @@ std::time_t BitcoinExchange::dateSeconds()
 
     iss >> year >> delimiter >> month >> delimiter >> day;
 
-    std::tm tm_date;
+    std::tm tm_date = {};
+
     tm_date.tm_year = year - 1900;
     tm_date.tm_mon = month - 1;
     tm_date.tm_mday = day;
 
-    std::time_t time_dat = std::mktime(&tm_date);
-
-    return time_dat;
+    _timeDate = std::mktime(&tm_date);
 };
+
+std::time_t BitcoinExchange::dateSecondsResult(std::string dt)
+{
+    std::istringstream iss(dt);
+
+    int year, month, day;
+    char delimiter;
+
+    iss >> year >> delimiter >> month >> delimiter >> day;
+
+    std::tm tm_date = {};
+
+    tm_date.tm_year = year - 1900;
+    tm_date.tm_mon = month - 1;
+    tm_date.tm_mday = day;
+
+    std::time_t time_date = std::mktime(&tm_date);
+    return time_date;
+};
+
 bool BitcoinExchange::is_valid_date() const
 {
     std::istringstream iss(_date);
@@ -119,25 +117,22 @@ bool BitcoinExchange::is_valid_date() const
 
     if (iss >> year >> delimiter >> month >> delimiter >> day)
     {
-        std::tm tm_date;
+
+        std::tm tm_date = {};
         tm_date.tm_year = year - 1900;
         tm_date.tm_mon = month - 1;
         tm_date.tm_mday = day;
-        tm_date.tm_hour = 0;
-        tm_date.tm_min = 0;
-        tm_date.tm_sec = 0;
 
         std::time_t time_date = std::mktime(&tm_date);
-        std::cout << "--->" << time_date << "-- " << year << "-" << month << "-" << day << "\n";
         if (tm_date.tm_year == year - 1900 && tm_date.tm_mon == month - 1 && tm_date.tm_mday == day)
         {
             if (time_date != -1)
                 return true;
-            std::cout << "--->" << time_date << "\n";
         }
     }
     return false;
 }
+
 void BitcoinExchange::ft_parce()
 {
     std::string amount;
@@ -151,12 +146,8 @@ void BitcoinExchange::ft_parce()
         }
         if (_arg[i] == '|')
             pipe++;
-        else if (_arg[i] == '\n')
-            ;
         else if (pipe == 0)
-        {
             _date += _arg[i];
-        }
         else
             amount += _arg[i];
     }
@@ -202,13 +193,50 @@ void BitcoinExchange::ft_parce()
     }
 };
 
+void BitcoinExchange::calculBitc()
+{
+
+    int i = 0;
+    std::string line;
+    std::string amnt;
+    std::string line_tmp;
+    std::string dt;
+    std::time_t dts_tmp;
+    std::ifstream file("data.csv");
+
+    if (!file.is_open())
+    {
+        _error = "";
+        throw BitcoinExchange::ErrorFileException();
+    }
+    std::getline(file, line);
+    while (std::getline(file, line))
+    {
+        dt = line.substr(0, 10);
+        dts_tmp = dateSecondsResult(dt);
+        if (i == 0)
+            line_tmp = line;
+        if (_timeDate < dts_tmp)
+        {
+            amnt = line_tmp.substr(11);
+            _result = _amount * std::stod(amnt);
+            break;
+        }
+        line_tmp = line;
+        i++;
+    }
+    file.close();
+};
+
+void BitcoinExchange::printResult()
+{
+    std::cout << _date << " => " << _amount << " = " << _result << "\n";
+};
+
 const char *BitcoinExchange::BadFormatException::what() const throw() { return "Error: bad input => "; };
 const char *BitcoinExchange::NotPosiNumException::what() const throw() { return "Error: not a positive number. "; };
 const char *BitcoinExchange::LargerNumException::what() const throw() { return "Error: too large a number."; };
-
-void BitcoinExchange::handleDate(){
-
-};
+const char *BitcoinExchange::ErrorFileException::what() const throw() { return "Error opening file."; };
 
 BitcoinExchange::~BitcoinExchange()
 {
