@@ -6,15 +6,13 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 11:07:17 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 11:45:44 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:15:58 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 #define BITCOINEXCHANGE_HPP
 
-#include <string>
-#include <iostream>
 #include <string.h>
 #include <iostream>
 #include <sstream>
