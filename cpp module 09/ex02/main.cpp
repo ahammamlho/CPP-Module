@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.HPP                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/07 11:59:34 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/08 09:30:21 by lahammam         ###   ########.fr       */
+/*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
+/*   Updated: 2023/05/08 09:56:19 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-#define RPN_HPP
+#include "PmergeMe.hpp"
 
-#include <stack>
-#include <string>
-#include <iostream>
-
-class RPN
+int main(int ac, char **av)
 {
-private:
-    std::string _arg;
-    std::stack<double> _numbers;
-
-public:
-    RPN();
-    RPN(std::string arg);
-
-    void parce();
-    void calcul(char oper);
-    void printResult();
-
-    class ErrorException : public std::exception
+    if (ac == 1)
+        std::cout
+            << "=> Please enter: ./PmergeMe \"array positive numbers\" \n";
+    else
     {
-    public:
-        const char *what() const throw();
-    };
-    ~RPN();
-};
-
-#endif
+        PmergeMe pmergeme(av);
+        pmergeme.parce();
+    }
+    return 0;
+}

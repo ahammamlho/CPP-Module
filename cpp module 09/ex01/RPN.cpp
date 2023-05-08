@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 11:59:28 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/07 22:25:07 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/08 09:26:15 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ void RPN::parce()
 
         i++;
     }
-    std::cout << tmp << "\n";
     i = 0;
     while (tmp[i])
     {
-        if (tmp[i] > '9' || tmp[i] < '0' || tmp[i] != '*' || tmp[i] != '-' || tmp[i] != '+' || tmp[i] != '/')
+        if (tmp[i] > '9' && tmp[i] < '0' && tmp[i] != '*' && tmp[i] != '-' && tmp[i] != '+' && tmp[i] != '/')
             throw RPN::ErrorException();
         while (tmp[i] <= '9' && tmp[i] >= '0')
         {
@@ -64,9 +63,9 @@ void RPN::printResult()
 
 void RPN::calcul(char oper)
 {
-    int result;
-    int nbr1;
-    int nbr2;
+    double result;
+    double nbr1;
+    double nbr2;
 
     if (_numbers.size() < 2)
         throw RPN::ErrorException();
@@ -82,6 +81,7 @@ void RPN::calcul(char oper)
         result = nbr1 + nbr2;
     if (oper == '-')
         result = nbr2 - nbr1;
+    std::cout << nbr2 << oper << nbr1 << " = " << result << "\n";
     _numbers.push(result);
 };
 
@@ -89,3 +89,6 @@ const char *RPN::ErrorException::what() const throw() { return "Error"; };
 RPN::~RPN()
 {
 }
+// 4 5 * 7 2 / 8 4 / * +"
+// 4 * 5 = 20 7 2 / 8 4 / * +
+//
