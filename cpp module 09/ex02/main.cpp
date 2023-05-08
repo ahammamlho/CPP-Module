@@ -6,7 +6,7 @@
 /*   By: lahammam <lahammam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:32:55 by lahammam          #+#    #+#             */
-/*   Updated: 2023/05/08 09:56:19 by lahammam         ###   ########.fr       */
+/*   Updated: 2023/05/08 20:37:42 by lahammam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int ac, char **av)
     {
         PmergeMe pmergeme(av);
         pmergeme.parce();
+        pmergeme.ft_print();
     }
     return 0;
 }
